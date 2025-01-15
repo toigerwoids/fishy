@@ -1,0 +1,464 @@
+/* Base styles for the animation */
+.animation-wrapper {
+position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #000000;
+}
+
+.tooltip {
+    position: absolute;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 10px 10px;
+    border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px); /* Apply the blur effect */
+    font-family: 'Inter tight', sans-serif;
+    font-size: 12px;
+    display: none;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    max-width: 150px; /* Prevent the box from becoming too wide */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words */
+}
+
+.animation-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Animation layer */
+}
+
+/* General text layer styles */
+.title, 
+.nav-links,
+.content-text,
+p, 
+h1, h2, h3, h4, h5, h6,
+.text-block,
+.rich-text-block,
+.paragraph,
+a,
+span,
+div:not(.animation-container):not(.animation-wrapper) /* Target all divs except animation containers */ {
+    position: relative;
+    z-index: 2; /* All text elements appear above animation */
+}
+
+.environment-info {
+    display: block; /* Always display */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: 'Inter tight', sans-serif;
+    z-index: 2;
+    transform-origin: top;
+    transform: scaleY(1); /* Always expanded */
+    transition: none; /* Remove transition since toggling is gone */
+}
+
+.environment-info h3 {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Inter tight', sans-serif;
+}
+
+.environment-info div {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+    font-family: "Inter tight", sans-serif;
+}
+/* Snapshot Button */
+#snapshot-button {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    padding: 0 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    overflow: visible; /* Changed from hidden to show the glow */
+    transition: transform 0.3s ease;
+}
+
+/* Add the rotating glow effect */
+#snapshot-button::before {
+    content: '';
+    position: absolute;
+    top: -0.5px;
+    left: -0.5px;
+    right: -0.5px;
+    bottom: -0.5px;
+    border-radius: 10px; /* Slightly larger than button's border-radius */
+    background: linear-gradient(90deg, 
+        #14F195, 
+        #9945FF,
+        #00e7f5,
+        #14F195
+    );
+    z-index: -1;
+    animation: rotate 6s linear infinite,
+               breathe 4s ease-in-out infinite;
+    background-size: 300% 300%;
+}
+
+/* Add a background layer to maintain button appearance */
+#snapshot-button::after {
+    content: '';
+    position: absolute;
+    top: 0.5px;
+    left: 0.5px;
+    right: 0.5px;
+    bottom: 0.5px;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 9px;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+#snapshot-button:hover::before {
+    animation-duration: 1.5s; /* Faster rotation on hover */
+}
+
+#snapshot-button:active {
+    transform: scale(0.98);
+}
+
+/* Top Navigation Bar */
+/* Top Navigation Bar */
+#top-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    padding: 0px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    z-index: 101; /* Updated to ensure it's above the modal */
+    align-items: center;
+}
+
+/* Navigation Items */
+.nav-item {
+    font-family: 'Inter tight', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+/* Style for the span that wraps the text */
+.nav-item span {
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline Effect */
+.nav-item span::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00e7f5;
+    transition: width 0.6s ease;
+}
+
+/* Hover Effect */
+.nav-item:hover span::after {
+    width: 100%;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 100; /* Keep modal below navigation bar */
+    overflow-y: auto; /* Allow scrolling for overflowing content */
+    font-family: 'Inter tight', sans-serif;
+    color: #fff;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    max-width: 800px;
+    margin: 100px auto; /* Add spacing from the top */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Close Button */
+.modal-content .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-content .close:hover {
+    color: #00e7f5;
+}
+
+.environment-info.dragging {
+    cursor: move; /* Show move cursor while dragging */
+    opacity: 0.9; /* Slightly reduce opacity for feedback */
+}
+#canvas-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust for proper vertical centering */
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    color: white;
+    pointer-events: none; /* Prevent interactions */
+    z-index: 100;
+    opacity: 1; /* Fully visible initially */
+    transition: opacity 4s ease; /* Smooth fade-out */
+    text-align: center; /* Ensure the text is centered */
+}
+
+#canvas-subtitle {
+    position: absolute;
+    top: calc(50% + 45px); /* Align below the main title */
+    left: 50%;
+    transform: translate(-50%, 0); /* Center horizontally */
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400; /* Lighter weight for the subtitle */
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    pointer-events: none; /* Prevent interactions */
+    z-index: 100;
+    opacity: 1; /* Fully visible initially */
+    transition: opacity 4s ease; /* Smooth fade-out */
+    text-align: center; /* Ensure the text is centered */
+}
+
+#capacity-container {
+    text-align: center;
+}
+
+#capacity-indicator {
+    width: 120px;
+    height: 120px;
+}
+#logo-circle.glowing:hover::before {
+    animation-duration: 1.5s; /* Faster rotation on hover */
+}
+#logo-circle.glowing::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 50%; /* Keep it circular */
+    background: linear-gradient(90deg, 
+        #14F195, 
+        #9945FF,
+        #00e7f5,
+        #14F195
+    );
+    z-index: -1;
+    animation: rotate 6s linear infinite,
+               breathe 4s ease-in-out infinite;
+    background-size: 300% 300%;
+}
+
+/* Add a background layer to maintain button appearance */
+#logo-circle::after {
+    content: '';
+    position: absolute;
+    top: 0.5px;
+    left: 0.5px;
+    right: 0.5px;
+    bottom: 0.5px;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.environment-info {
+    transition: all 0.3s ease-in-out;
+    transform-origin: top left;
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE10+/Edge */
+    user-select: none;          /* Standard */
+}
+/* Also apply to any text content inside */
+.environment-info * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.info-close {
+    transition: color 0.3s ease;
+}
+
+.info-close:hover {
+    color: rgba(255, 255, 255, 1) !important;
+}
+#ball-indicator {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    display: none;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+#hint-tooltip {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#cursor-progress-bar {
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#contract-address-box {
+    position: fixed;
+    bottom: 20px; /* Adjusts distance from the bottom of the screen */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to perfectly center */
+    width: 400px; /* Fixed width */
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Apply the blur effect */    
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: 'Inter Tight', sans-serif;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#contract-address {
+    font-size: 14px;
+    font-family: 'Inter Tight', sans-serif;
+    color: #ffffff;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+#copy-address-btn {
+    background: #000000;
+    border: none;
+    font-family: 'Inter Tight', sans-serif;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    overflow: hidden; /* Important for containing the animation */
+}
+
+/* Text wrapper to handle the animation container */
+.button-text-wrapper {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Style for both text versions */
+.button-text {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Default (white) text */
+.button-text.default {
+    color: white;
+}
+
+/* Hover (colored) text */
+.button-text.hover {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    right: 0;
+    color: #00e7f5; /* Or your desired color */
+}
+
+/* Animation on hover */
+#copy-address-btn:hover .button-text-wrapper {
+    transform: translateY(-200%);
+}
+#snapshot-button,
+#contract-address-box,
+#top-nav {
+    height: 45px; /* Uniform height */
+    display: flex; /* Align content properly */
+    align-items: center; /* Center text/icon vertically */
+}

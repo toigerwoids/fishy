@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Top Navigation Bar -->
+<div id="canvas-title">DeFish</div>
+<div id="canvas-subtitle">An underwater ecosystem influenced by the blockchain</div> 
+<div id="top-nav">
+    <div class="nav-item" id="about-button"><span>About</span></div>
+    <div class="nav-item" id="changelog-button"><span>Changelog</span></div>
+    <div class="nav-item" id="close-button"><span>X</span></div>
+  <div class="nav-item" id="close-button"><span>Telegram</span></div>
+</div>
+  
+    <!-- Main Content -->
+    <div class="animation-wrapper">
+        <div class="animation-container"></div>
+        <div class="title"></div>
+        <button id="snapshot-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">Pause Simulation</button>
+
+    <!-- Modals for About and Changelog -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About</h2>
+            <p>DeFish is a one-of-a-kind digital underwater ecosystem shaped by the power of blockchain technology. DeFish is more than just a visual experience – it's an interactive journey into a dynamic aquatic world where every ripple is influenced by the market activity of its token counterpart, $DEFISH.</p>
+        </div>
+    </div>
+
+    <div id="changelog-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Changelog</h2>
+            <p>Here you can populate information about updates and changes.</p>
+        </div>
+    </div>
+<div id="contract-address-box">
+    <span id="contract-address">
+        <span id="truncated-address"></span>
+        <span id="full-address" style="display: none;">C3JX9TWLqHKmcoTDTppaJebX2U7DcUQDEHVSmJFz6K6S</span>
+    </span>
+    <button id="copy-address-btn">
+        <span class="button-text-wrapper">
+            <span class="button-text default">Copy</span>
+            <span class="button-text hover">Copy</span>
+        </span>
+    </button>
+</div>
+</body>
+</html>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
