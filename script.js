@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Global variables
     let max_particles, particles, frequency, init_num, max_time, time_to_recreate, tela, canvas;
     let marketCap = 0; // Replace environmentHealth with marketCap
-    const MAX_MARKETCAP = 5000000; // Replace MAX_HEALTH
+    const MAX_MARKETCAP = 2000000; // Replace MAX_HEALTH
     let mouseX = 0;
     let mouseY = 0;
     const REPULSION_RADIUS = 100;
