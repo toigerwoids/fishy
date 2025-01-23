@@ -552,7 +552,7 @@ $("#fullscreen-button").on("click", function () {
   }
 
   async function fetchMarketCap() {
-    const tokenAddress = "9Yj2TAUzc21sviE5Tzkut2RS7Ttegepbn4PJYkoMpump"; // Replace with your token address
+    const tokenAddress = "zJkjcqRpGKpT2Ux6TNiV2eee93NgrHkuysBkC9spump"; // Replace with your token address
     const isOnPumpfun = false; // Set to true if the token is on Pumpfun; otherwise false for Dexscreener
     let url;
 
