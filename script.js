@@ -817,7 +817,7 @@ function nextStep() {
       window.isInfoVisible = false;
     }
     // Full contract address
-    const fullAddress = "EvbiweDW89sZPmbZMQ5FGd3Ga3u1apfHFxWSSDFRpump";
+    const fullAddress = "4cxcFTwUV9a6d5VtdrMszmcNdkEXQCavtNwZocKSpump";
 
     // Function to truncate the address
     function truncateAddress(address) {
