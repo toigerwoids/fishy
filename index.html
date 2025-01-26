@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DePond</title>
+    <link rel="icon" href="https://i.ibb.co/SJq75GM/12.png" type="image/png">
+</head>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+</div>
+<div id="guided-tooltip" style="display: none;">
+    <div id="guided-tooltip-content">
+        <!-- Tooltip Text -->
+        <p id="guided-tooltip-text" style="margin-top: 24px; text-align: left;" data-step="0"></p>
+
+        <!-- Navigation Controls -->
+        <div id="guided-tooltip-controls">
+            <div id="navigation-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                <!-- Previous Button -->
+                <button id="guided-tooltip-prev" style="min-width: 100px; display: flex; align-items: center; justify-content: center; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border: none; color: rgba(255, 255, 255, 0.7); font-family: 'Inter Tight', sans-serif; font-size: 14px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Previous</span>
+                </button>
+
+                <!-- Step Counter -->
+                <div id="step-counter-container" style="position: relative; display: inline-block; width: 50px; height: 50px; text-align: center;">
+                    <canvas id="step-progress-circle" width="80" height="80" style="position: absolute; top: 0; left: 0;"></canvas>
+                    <span id="step-counter"></span>
+                </div>
+
+                <!-- Next Button -->
+                <button id="guided-tooltip-next" style="min-width: 100px; display: flex; align-items: center; justify-content: center; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border: none; color: rgba(255, 255, 255, 0.7); font-family: 'Inter Tight', sans-serif; font-size: 14px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+                    <span>Next</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 8px;">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Exit Tour Button -->
+            <button id="guided-tooltip-exit">Exit Tour</button>
+        </div>
+    </div>
+</div>
+
+<!-- Tour Step Data -->
+
+<div id="tour-steps" style="display: none;">
+    <div class="modal-section" data-step="0" data-element="" 
+        data-text="<h3>⚠️ Mobile Device Detected</h3>
+        We noticed you're visiting our website from a mobile device. For the best experience, we recommend reopening D.io on a computer or laptop, as some features are optimized for desktop. This ensures you can fully explore everything we have to offer without any limitations.<br><br>Thanks">
+    </div>
+    <div class="modal-section" data-step="1" data-element="#guided-tooltip-next" 
+        data-text="<h2>Welcome to DePond</h2><br>Step into a revolutionary digital experience where blockchain meets nature. You're about to witness the first-ever living, breathing underwater ecosystem that responds dynamically to real-time blockchain activity.<br><br>Click 'Next' to begin your journey through this extraordinary digital aquarium, where technology and nature converge in ways you've never seen before.">
+    </div>
+
+    <div class="modal-section" data-step="2" data-element="" 
+         data-text="<h3>The Heart of DePond</h3><br>A vibrant, living underwater ecosystem that pulses with the rhythm of blockchain activity.<br><br>This isn't just another visualization - it's a dynamic habitat where every creature tells a story. Watch as diverse organisms swim, interact, and evolve, each one representing different aspects of the ecosystem's health, growth, and balance. As market conditions shift, the environment transforms, creating a living, breathing representation of blockchain's impact.<br><br>Your Role in the Ecosystem:<br><br>🔍 Discover - Hover over any fish to uncover its unique story, traits, and behaviors<br>🌊 Interact - Hold your mouse to feed the organisms, creating ripples of interaction throughout the environment<br>🎮 Engage - Move your cursor to see creatures respond naturally, showcasing their sophisticated AI behaviors<br><br>This is just the beginning - we're constantly evolving, just like our ecosystem. Stay tuned as we introduce new features and interactions that will make your experience even more immersive.">
+    </div>
+
+    <div class="modal-section" data-step="3" data-element=".environment-info" 
+        data-text="<h3>Your Window into the Ecosystem's Vitals</h3><br>The Environment Status dashboard is your command center for monitoring the ecosystem's health and progress. Here's what each metric tells you:<br><br>🕐 Time: Shows current UTC time and day/night cycle - affecting fish behavior and visual aesthetics<br>🔋 Capacity: Monitors population density and ecosystem balance<br>❤️ Health: Tracks overall ecosystem wellbeing<br>📈 Growth: Shows journey towards unlocking all species<br>💰 Market Stats: Real-time updates on Market Cap and Price Changes<br>🌡️ Stage & Population: Current development phase, progress towards the next  and total inhabitants<br>⚠️ Watch for the Health indicator's red glow - it's your early warning system for bacterial threats that need immediate attention.<br><br>Think of this as your ecosystem's vital signs monitor!">
+    </div>
+
+    <div class="modal-section" data-step="4" data-element="#top-nav" 
+        data-text="<h3>Your Portal to the DePond Universe</h3><br>The navigation bar is your gateway to exploring every aspect of DePond:<br><br>📚 About: Dive deep into our vision and technology<br>📋 Changelog: Track our latest updates and improvements<br>🌐 Social: Connect with our thriving community<br><br>Everything you need to stay informed and engaged with DePond is just a click away!">
+    </div>
+
+    <div class="modal-section" data-step="5" data-element="#contract-address-box" 
+        data-text="<h3>Your Security Gateway to $DEPOND</h3><br>This is the official contract address for $DEPOND on the Solana blockchain. Security is paramount in the crypto space, so we've made it easy to verify and copy the correct address.<br><br>‼️ Important: Always verify this address when interacting with $DEPOND to ensure your transactions are secure and legitimate.">
+    </div>
+
+    <div class="modal-section" data-step="5" data-element="#snapshot-button" 
+        data-text="<h3>Freeze Time in Your Digital Aquarium</h3><br>Want to take a closer look at our fascinating inhabitants? The Pause/Play button gives you control over the simulation. Freeze the action to examine each species in detail, or let them swim freely in their natural patterns.<br><br>Perfect for those moments when you want to study the intricate details of our ecosystem without the dynamic movement.">
+    </div>
+
+<div class="modal-section" data-step="6" data-element="#fullscreen-button" 
+    data-text="<h3>Immerse Yourself Completely</h3><br>Sometimes you just want to sit back and admire the beauty of nature - even digital nature. The fullscreen mode removes all interfaces, letting you experience the pure beauty of your ecosystem in its full glory.<br><br>Ideal for losing yourself in the mesmerizing flow of digital aquatic life.">
+</div>
+
+<div class="modal-section" data-step="7" data-element="#guided-tooltip-next" 
+    data-text="<h3>You're All Set to Dive In!</h3><br>You've got all the tools needed to explore and interact with DePond. From monitoring ecosystem health to interacting with various species, you're ready to experience this unique blend of blockchain technology and digital nature.<br><br>Remember:<br>🎮 Interact with the environment<br>🔍 Monitor your ecosystem's health<br>📈 Track market movements<br>🐟 Get to know your digital aquatic friends<br><br>The ecosystem is yours to explore - each visit might bring new discoveries as market conditions evolve and new species emerge. Enjoy your journey in DePond!">
+</div>
+</div>
+  
+<button id="fullscreen-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/>
+    </svg>
+</button>
+
+<div id="canvas-subtitle">A digital underwater ecosystem powered by the blockchain</div> 
+<div id="canvas-title">DePond</div>
+<div id="top-nav">
+    <div class="nav-item" id="about-button"><span>About</span></div>
+    <div class="nav-item" id="changelog-button"><span>Changelog</span></div>
+    <a href="https://x.com/DePondSol" target="_blank" rel="noopener noreferrer">
+        <div class="nav-item" id="close-button"><span>X</span></div>
+    </a>
+</div>
+  
+    <!-- Main Content -->
+        <div class="title"></div>
+        <button id="snapshot-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">Pause Simulation</button>
+
+<div class="animation-wrapper">
+    <div class="animation-container"></div>
+    <div class="title"></div>
+    <div class="canvas-border"></div> <!-- Add this line -->
+</div>
+
+
+    <!-- Modal -->
+<div id="content-modal" class="modal">
+    <span class="close">&times;</span>  <!-- Move it here, outside modal-content -->
+    <div class="modal-content">
+            
+            <!-- Text Container to Constrain Width -->
+            <div class="modal-text-container">
+                <!-- About Section -->
+                <div class="modal-section" id="about-section">
+                    <h2 style="margin-top: 100px;">First-Of-Its-Kind Art Experiment</h2>
+                    <p>DePond is a digital underwater ecosystem shaped by the power of blockchain technology. DePond is more than just a visual experience – it's an interactive journey into a dynamic aquatic world where every ripple is influenced by the market activity of our $DEPOND token.</p>
+                  <h2>Our Vision</h2>
+                    <p>We aim to merge technology, art, and nature to create an engaging platform that brings blockchain interactions to life in a fun, accessible way. We believe that blockchain is not just about numbers or charts; it’s about the systems and relationships it can power. DePond transforms abstract blockchain data into a thriving, vibrant ecosystem where users can witness the impact of decentralized systems in a new, imaginative form.</p>
+                  
+                  <h2>How It Works</h2>
+                                      <p>The health and growth of the underwater environment are directly tied to real-world market data and user interactions:</p>
+
+<ul>
+  <li><strong>Ecosystem Growth:</strong> As blockchain market activity evolves, new species are introduced, and the ecosystem thrives or declines.</li>
+  <li><strong>Environmental Challenges:</strong> Sudden market volatility can lead to threats like bacteria outbreaks, challenging users to stabilize the system.</li>
+  <li><strong>Interactive Elements:</strong> Users can feed the aquatic life, monitor ecosystem health indicators, and actively participate in maintaining balance.</li>
+</ul>
+
+<p>Every user action and market fluctuation has a ripple effect on the environment, simulating the interconnectedness of decentralized systems.</p>
+                  <h2>Our Objective</h2>
+<ol>
+  <li><strong>Educate:</strong> Make blockchain systems approachable and understandable through visual and interactive storytelling.</li>
+  <li><strong>Engage:</strong> Foster user interaction by gamifying blockchain activity and integrating real-time ecosystem dynamics.</li>
+  <li><strong>Innovate:</strong> Blend creativity and technology to present data in a way that's both impactful and enjoyable.</li>
+                  </ol>
+                                    <h2>Why Blockchain</h2>
+                    <p style="margin-bottom:100px;">Blockchain represents decentralized cooperation and adaptability, qualities we see mirrored in natural ecosystems. Through DePond, we aim to showcase how blockchain's principles can mimic the complexities and beauty of life itself.</p>
+                  
+                </div>
+                
+                <!-- Changelog Section -->
+                <div class="modal-section" id="changelog-section">
+                    <h2 style="margin-top: 100px;">Changelog</h2>
+                    <p>Check back soon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contract-address-box">
+    <span id="contract-address">
+        <span id="truncated-address"></span>
+        <span id="full-address" style="display: none;">4cxcFTwUV9a6d5VtdrMszmcNdkEXQCavtNwZocKSpump</span>
+    </span>
+    <button id="copy-address-btn">
+        <span class="button-text-wrapper">
+            <span class="button-text default">Copy</span>
+            <span class="button-text hover">Copy</span>
+        </span>
+    </button>
+</div>
+<div class="rain-container"></div>
+</body>
+</html>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
