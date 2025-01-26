@@ -4879,7 +4879,7 @@ if (hoveredParticle) {
     });
 
     // Set up periodic fetching of market cap data
-    setInterval(fetchMarketCap, 30000);
+    setInterval(fetchMarketCap, 5000);
 
     setTimeout(function () {
       time_to_recreate = true;
