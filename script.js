@@ -1218,11 +1218,11 @@ infoDiv.html(
       };
     } else if (marketCap < 70000) {
       return {
-        paramecium: 0.7,
-        plankton: 0.2,
+        paramecium: 0.6,
+        plankton: 0.1,
         fishEgg: 0.1,
-        fishLarvaEgg: 0,
-        fishLarva: 0,
+        fishLarvaEgg: 0.1,
+        fishLarva: 0.1,
         neonTrail: 0,
         rainbowTrail: 0,
         jellyfish: 0,
@@ -1232,10 +1232,10 @@ infoDiv.html(
     } else if (marketCap < 100000) {
       return {
         paramecium: 0.5,
-        plankton: 0.3,
+        plankton: 0.1,
         fishEgg: 0.1,
         fishLarvaEgg: 0.1,
-        fishLarva: 0,
+        fishLarva: 0.2,
         neonTrail: 0,
         rainbowTrail: 0,
         jellyfish: 0,
