@@ -9,7 +9,7 @@ $(document).ready(function () {
     tela,
     canvas;
   let marketCap = 0; // Replace environmentHealth with marketCap
-  const MAX_MARKETCAP = 1500000; // Replace MAX_HEALTH
+  const MAX_MARKETCAP = 500000; // Replace MAX_HEALTH
   let mouseX = 0;
   let mouseY = 0;
   const REPULSION_RADIUS = 100;
