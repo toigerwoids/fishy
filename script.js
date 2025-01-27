@@ -1205,10 +1205,10 @@ infoDiv.html(
   function getProbabilitiesBasedOnThreshold(marketCap) {
     if (marketCap < 50000) {
       return {
-        paramecium: 0.9,
+        paramecium: 0.7,
         plankton: 0.1,
-        fishEgg: 0,
-        fishLarvaEgg: 0,
+        fishEgg: 0.1,
+        fishLarvaEgg: 0.1,
         fishLarva: 0,
         neonTrail: 0,
         rainbowTrail: 0,
